@@ -3,14 +3,14 @@
 #include "alg.h"
 
 double pown(double value, uint16_t n) {
-  if (n == 0) {
+  if (n <= 0) {
     return 1;
   }
   return value * pown(value, n - 1);
 }
 
 uint64_t fact(uint16_t n) {
-  if (n == 0) {
+  if (n <= 0) {
     return 1;
   }
   return n * fact(n - 1);
@@ -22,10 +22,10 @@ double calcItem(double x, uint16_t n) {
 
 double expn(double x, uint16_t count) {
   double res = 0;
-  for (int i = 0; i < count; i++) {
+  for (int i = 1; i <= count; i++) {
     res += calcItem(x, i);
   }
-  return res;
+  return res + 1;
 }
 
 double sinn(double x, uint16_t count) {
@@ -38,8 +38,8 @@ double sinn(double x, uint16_t count) {
 
 double cosn(double x, uint16_t count) {
   double res = 0;
-  for (int i = 0; i <= count; i++) {
-    res += calcItem(x, 2 * i) * pown(-1, i + 2);
+  for (int i = 1; i <= count; i++) {
+    res += calcItem(x, 2 * i - 2) * pown(-1, i + 1);
   }
   return res;
 }
