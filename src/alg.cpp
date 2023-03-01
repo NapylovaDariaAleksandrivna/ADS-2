@@ -30,7 +30,7 @@ double expn(double x, uint16_t count) {
 
 double sinn(double x, uint16_t count) {
   double res = 0;
-  for (int i = 1; i < count; i++) {
+  for (int i = 1; i <= count; i++) {
     res += calcItem(x, 2 * i - 1) * pown(-1, i + 1);
   }
   return res;
